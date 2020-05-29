@@ -12,15 +12,18 @@ class TopStreamsViewModel {
     
     var twitchStreamsArray: Boxing<[TwitchStream]?> = Boxing(nil)
     var twitchStreamManager: APITwitchStreamManager
+    var isLoading: Bool = true
     
     func fetchStreams(page: Int = 0) {
-        twitchStreamManager.fetchTwitchStreams { [weak self] result in
+        twitchStreamManager.fetchTwitchStreams(page: page) { [weak self] result in
             switch result {
             case .Success(let response):
-                self?.twitchStreamsArray.value = response.top
+                self?.twitchStreamsArray.value?.append(contentsOf: response.top)
+                print(response.top)
             case .Failure(let error):
                 print(error)
             }
+            self?.isLoading = false
         }
     }
     

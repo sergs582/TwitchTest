@@ -23,7 +23,7 @@ final class APITwitchStreamManager: APIManager {
     }
     
     func fetchTwitchStreams(page: Int = 0, completion: @escaping (APIResult<TwitchStreamAPIResponse>) -> Void) {
-        let baseURL = "https://api.twitch.tv/kraken/games/top"
+        let baseURL = "https://api.twitch.tv/kraken/games/top?offset=\(page)"
         var request = URLRequest(url: URL(string: baseURL)!)
         
         request.addValue("application/vnd.twitchtv.v5+json", forHTTPHeaderField: "Accept" )

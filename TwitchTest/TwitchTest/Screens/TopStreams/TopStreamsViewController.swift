@@ -8,33 +8,49 @@
 
 import UIKit
 
-class TopStreamsViewController: UIViewController {
+class TopStreamsViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var streamsTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupStreamsTable()
+        
         viewModel = TopStreamsViewModel(apiManager: APITwitchStreamManager())
         viewModel.twitchStreamsArray.bind { _ in
             DispatchQueue.main.async {
                 self.streamsTable.reloadData()
             }
-            
         }
+        setupStreamsTable()
     }
     var viewModel: TopStreamsViewModel!
+    var page = 0
     
     func setupStreamsTable() {
+        
         streamsTable.dataSource = self
+        streamsTable.delegate = self
+        streamsTable.tableFooterView = UIView(frame: .zero)
         streamsTable.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "gamecell")
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        
+        if offsetY > contentHeight - scrollView.frame.size.height && !viewModel.isLoading{
+            page += 10
+            viewModel.isLoading = true
+            viewModel.fetchStreams(page: page)
+        }
     }
 
 }
 
 extension TopStreamsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.twitchStreamsArray.value!.count
+        viewModel.twitchStreamsArray.value?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -47,5 +63,4 @@ extension TopStreamsViewController: UITableViewDataSource {
         cell.commonInit()
         return cell
     }
-    
 }
