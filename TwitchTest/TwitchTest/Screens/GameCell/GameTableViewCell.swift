@@ -10,6 +10,11 @@ import UIKit
 
 class GameTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var ivCover: UIImageView!
+    @IBOutlet weak var lTitle: UILabel!
+    @IBOutlet weak var lChannels: UILabel!
+    @IBOutlet weak var lViewers: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
