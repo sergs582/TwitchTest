@@ -6,5 +6,6 @@ target 'TwitchTest' do
   use_frameworks!
 
   # Pods for TwitchTest
-  pod 'Kingfisher'
+  pod 'Kingfisher' 
+  pod 'RateView'
 end

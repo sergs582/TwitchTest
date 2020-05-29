@@ -70,17 +70,74 @@
             </objects>
             <point key="canvasLocation" x="1234.7826086956522" y="1026.5625"/>
         </scene>
-        <!--Item-->
+        <!--Rating View Controller-->
         <scene sceneID="Xiq-Qp-3P5">
             <objects>
-                <viewController id="THY-Sd-4WK" sceneMemberID="viewController">
+                <viewController id="THY-Sd-4WK" customClass="RatingViewController" customModule="TwitchTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VRD-0A-EfP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="53" translatesAutoresizingMaskIntoConstraints="NO" id="zo1-f4-chF">
+                                <rect key="frame" x="87" y="249" width="240" height="398"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate Us!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jpq-EG-69l">
+                                        <rect key="frame" x="65.5" y="0.0" width="109" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8jK-Ia-44L" customClass="RateView">
+                                        <rect key="frame" x="0.0" y="89" width="240" height="100"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="UiE-HU-JoL"/>
+                                        </constraints>
+                                    </view>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write your review here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BV5-Va-wka">
+                                        <rect key="frame" x="0.0" y="242" width="240" height="156"/>
+                                        <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="HMR-qq-Knq"/>
+                                            <constraint firstAttribute="height" constant="156" id="kDP-gJ-9Yr"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="0S0-LY-qyG"/>
+                                    <constraint firstAttribute="height" constant="398" id="fES-Te-skK"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ng-WP-brk">
+                                <rect key="frame" x="164.5" y="685" width="85" height="58"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendReview:" destination="THY-Sd-4WK" eventType="touchUpInside" id="eil-dU-ZR0"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="3Ng-WP-brk" firstAttribute="top" secondItem="zo1-f4-chF" secondAttribute="bottom" constant="38" id="26J-MW-raW"/>
+                            <constraint firstItem="3Ng-WP-brk" firstAttribute="centerX" secondItem="VRD-0A-EfP" secondAttribute="centerX" id="5bW-6E-FSq"/>
+                            <constraint firstItem="zo1-f4-chF" firstAttribute="centerX" secondItem="VRD-0A-EfP" secondAttribute="centerX" id="SeJ-PE-nDq"/>
+                            <constraint firstItem="zo1-f4-chF" firstAttribute="centerY" secondItem="VRD-0A-EfP" secondAttribute="centerY" id="mRR-HQ-cxf"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="gog-lx-2nU"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="c5v-Vd-52W"/>
+                    <tabBarItem key="tabBarItem" systemItem="more" id="c5v-Vd-52W"/>
+                    <connections>
+                        <outlet property="rateButton" destination="3Ng-WP-brk" id="Hf7-FU-anp"/>
+                        <outlet property="rating" destination="8jK-Ia-44L" id="bye-zO-emu"/>
+                        <outlet property="reviewText" destination="BV5-Va-wka" id="Qe9-SU-A75"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D45-vZ-voG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -105,11 +162,11 @@
             </objects>
             <point key="canvasLocation" x="325" y="175"/>
         </scene>
-        <!--Item 2-->
+        <!--Navigation Controller-->
         <scene sceneID="NiR-jH-Yc0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1Xf-Jz-5yZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 2" id="B1X-jC-zoQ"/>
+                    <tabBarItem key="tabBarItem" systemItem="featured" id="B1X-jC-zoQ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1Qg-fF-Mew">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -124,11 +181,11 @@
             </objects>
             <point key="canvasLocation" x="-665.21739130434787" y="1026.5625"/>
         </scene>
-        <!--Item 1-->
+        <!--Navigation Controller-->
         <scene sceneID="AYj-vO-2ao">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Tj-ap-2HV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="l9A-e0-aib"/>
+                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="l9A-e0-aib"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2na-Kh-KI4">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

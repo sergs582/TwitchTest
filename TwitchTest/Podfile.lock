@@ -2,17 +2,21 @@ PODS:
   - Kingfisher (5.14.0):
     - Kingfisher/Core (= 5.14.0)
   - Kingfisher/Core (5.14.0)
+  - RateView (1.2)
 
 DEPENDENCIES:
   - Kingfisher
+  - RateView
 
 SPEC REPOS:
   trunk:
     - Kingfisher
+    - RateView
 
 SPEC CHECKSUMS:
   Kingfisher: 7b64389a43139c903ec434788344c288217c792d
+  RateView: d4d12e9bb76dc23a77a56f4e5c5fb530a3f3f998
 
-PODFILE CHECKSUM: e70c7a04f9f6afa34b9c99a54bd6edbb9846332c
+PODFILE CHECKSUM: 45da57c82c704be82d8e441e45c2bc1cf75473bf
 
 COCOAPODS: 1.8.4
