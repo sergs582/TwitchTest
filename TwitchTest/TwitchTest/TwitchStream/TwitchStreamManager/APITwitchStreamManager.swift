@@ -14,15 +14,12 @@ final class APITwitchStreamManager: APIManager {
         return URLSession(configuration: sessionConfiguration)
     }()
     
-    let apiKey: String
-    
-    init(sessionConfiguration: URLSessionConfiguration, apiKey: String) {
+    init(sessionConfiguration: URLSessionConfiguration) {
         self.sessionConfiguration = sessionConfiguration
-        self.apiKey = apiKey
     }
     
-    convenience init(apiKey: String) {
-        self.init(sessionConfiguration: URLSessionConfiguration.default, apiKey: apiKey)
+    convenience init() {
+        self.init(sessionConfiguration: URLSessionConfiguration.default)
     }
     
     func fetchTwitchStreams(page: Int = 0, completion: @escaping (APIResult<TwitchStreamAPIResponse>) -> Void) {

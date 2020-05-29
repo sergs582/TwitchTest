@@ -15,7 +15,15 @@ class TopStreamsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupStreamsTable()
+        viewModel = TopStreamsViewModel(apiManager: APITwitchStreamManager())
+        viewModel.twitchStreamsArray.bind { _ in
+            DispatchQueue.main.async {
+                self.streamsTable.reloadData()
+            }
+            
+        }
     }
+    var viewModel: TopStreamsViewModel!
     
     func setupStreamsTable() {
         streamsTable.dataSource = self
@@ -26,12 +34,17 @@ class TopStreamsViewController: UIViewController {
 
 extension TopStreamsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        5
+        viewModel.twitchStreamsArray.value!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "gamecell") as! GameTableViewCell
-        cell.lTitle.text = "\(indexPath.row)"
+        let stream = viewModel.twitchStreamsArray.value?[indexPath.row]
+        cell.coverURL = URL(string: (stream?.game.box.medium)!)
+        cell.title = stream?.game.name
+        cell.channels = stream?.channels
+        cell.viewers = stream?.viewers
+        cell.commonInit()
         return cell
     }
     

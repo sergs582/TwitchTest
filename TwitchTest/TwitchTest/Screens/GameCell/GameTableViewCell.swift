@@ -15,9 +15,20 @@ class GameTableViewCell: UITableViewCell {
     @IBOutlet weak var lChannels: UILabel!
     @IBOutlet weak var lViewers: UILabel!
     
+    var coverURL: URL?
+    var title: String?
+    var channels: Int?
+    var viewers: Int?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    func commonInit() {
+        lTitle.text = title
+        lChannels.text = "ch: \(channels ?? 0)"
+        lViewers.text = "v: \(viewers ?? 0)"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

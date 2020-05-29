@@ -22,6 +22,7 @@
 		877CA5FF2480EAC7002E6C77 /* TwitchStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877CA5FE2480EAC7002E6C77 /* TwitchStream.swift */; };
 		877CA6012480EB6A002E6C77 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877CA6002480EB6A002E6C77 /* Game.swift */; };
 		877CA6032480EC85002E6C77 /* TwitchStreamAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877CA6022480EC85002E6C77 /* TwitchStreamAPIResponse.swift */; };
+		877CA6062480F88D002E6C77 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877CA6052480F88D002E6C77 /* Box.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		877CA5FE2480EAC7002E6C77 /* TwitchStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchStream.swift; sourceTree = "<group>"; };
 		877CA6002480EB6A002E6C77 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		877CA6022480EC85002E6C77 /* TwitchStreamAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchStreamAPIResponse.swift; sourceTree = "<group>"; };
+		877CA6052480F88D002E6C77 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		877CA5CE2480DD2E002E6C77 /* TwitchTest */ = {
 			isa = PBXGroup;
 			children = (
+				877CA6042480F87E002E6C77 /* Boxing */,
 				877CA5FA2480EA50002E6C77 /* TwitchStream */,
 				877CA5F52480E7EC002E6C77 /* NetworkManager */,
 				877CA5CF2480DD2E002E6C77 /* AppDelegate.swift */,
@@ -140,6 +143,14 @@
 				877CA6022480EC85002E6C77 /* TwitchStreamAPIResponse.swift */,
 			);
 			path = TwitchStreamManager;
+			sourceTree = "<group>";
+		};
+		877CA6042480F87E002E6C77 /* Boxing */ = {
+			isa = PBXGroup;
+			children = (
+				877CA6052480F88D002E6C77 /* Box.swift */,
+			);
+			path = Boxing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,6 +234,7 @@
 				877CA5FD2480EAAF002E6C77 /* APITwitchStreamManager.swift in Sources */,
 				877CA5D02480DD2E002E6C77 /* AppDelegate.swift in Sources */,
 				877CA5E82480DFAA002E6C77 /* TopStreamsViewController.swift in Sources */,
+				877CA6062480F88D002E6C77 /* Box.swift in Sources */,
 				877CA5EA2480DFCC002E6C77 /* TopStreamsViewModel.swift in Sources */,
 				877CA5D22480DD2E002E6C77 /* SceneDelegate.swift in Sources */,
 			);
