@@ -8,21 +8,33 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Top Games-->
         <scene sceneID="VK7-bT-Mia">
             <objects>
                 <viewController id="NJU-iM-HAT" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8u1-Xn-8Wc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4gi-gU-0sK">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="InI-jy-Rq0" firstAttribute="bottom" secondItem="4gi-gU-0sK" secondAttribute="bottom" id="0Pj-hs-GJi"/>
+                            <constraint firstItem="4gi-gU-0sK" firstAttribute="leading" secondItem="InI-jy-Rq0" secondAttribute="leading" id="Cw3-Bk-pGe"/>
+                            <constraint firstItem="InI-jy-Rq0" firstAttribute="trailing" secondItem="4gi-gU-0sK" secondAttribute="trailing" id="V4n-kg-YRE"/>
+                            <constraint firstItem="4gi-gU-0sK" firstAttribute="top" secondItem="InI-jy-Rq0" secondAttribute="top" id="jFO-9P-DRa"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="InI-jy-Rq0"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="B1X-jC-zoQ"/>
+                    <navigationItem key="navigationItem" title="Top Games" id="WKA-qo-eC8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Pn-4P-Nm7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-664" y="1027"/>
+            <point key="canvasLocation" x="-665" y="1774"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="rxp-R0-Yb1">
@@ -38,7 +50,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="twV-g0-NoC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="374" y="1027"/>
+            <point key="canvasLocation" x="325" y="1027"/>
         </scene>
         <!--Item-->
         <scene sceneID="Xiq-Qp-3P5">
@@ -54,7 +66,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D45-vZ-voG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1423" y="1027"/>
+            <point key="canvasLocation" x="1372" y="1027"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="NiF-Oq-yZj">
@@ -67,13 +79,32 @@
                     </tabBar>
                     <connections>
                         <segue destination="mHW-pp-nOh" kind="relationship" relationship="viewControllers" id="zv8-gt-HED"/>
-                        <segue destination="NJU-iM-HAT" kind="relationship" relationship="viewControllers" id="otI-le-MRT"/>
+                        <segue destination="1Xf-Jz-5yZ" kind="relationship" relationship="viewControllers" id="otI-le-MRT"/>
                         <segue destination="THY-Sd-4WK" kind="relationship" relationship="viewControllers" id="DGY-bE-3Ez"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lty-A3-Rt5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="325" y="175"/>
+        </scene>
+        <!--Item 2-->
+        <scene sceneID="NiR-jH-Yc0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1Xf-Jz-5yZ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item 2" id="B1X-jC-zoQ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1Qg-fF-Mew">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="NJU-iM-HAT" kind="relationship" relationship="rootViewController" id="jAy-4W-cSX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gkO-Dz-ZMf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-665.21739130434787" y="1026.5625"/>
         </scene>
     </scenes>
 </document>
