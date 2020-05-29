@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class GameTableViewCell: UITableViewCell {
 
@@ -29,6 +30,8 @@ class GameTableViewCell: UITableViewCell {
         lTitle.text = title
         lChannels.text = "ch: \(channels ?? 0)"
         lViewers.text = "v: \(viewers ?? 0)"
+        ivCover.kf.indicatorType = .activity
+        ivCover.kf.setImage(with: coverURL)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
