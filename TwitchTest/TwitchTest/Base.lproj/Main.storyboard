@@ -39,21 +39,36 @@
             </objects>
             <point key="canvasLocation" x="-665" y="1774"/>
         </scene>
-        <!--Item 1-->
+        <!--Saved-->
         <scene sceneID="rxp-R0-Yb1">
             <objects>
-                <viewController id="mHW-pp-nOh" sceneMemberID="viewController">
+                <viewController id="mHW-pp-nOh" customClass="SavedViewController" customModule="TwitchTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Szg-SO-ciX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="C4D-pT-G7c">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="j6q-uA-VFg" firstAttribute="trailing" secondItem="C4D-pT-G7c" secondAttribute="trailing" id="DDf-C3-4fq"/>
+                            <constraint firstItem="j6q-uA-VFg" firstAttribute="bottom" secondItem="C4D-pT-G7c" secondAttribute="bottom" id="Fal-y2-pwN"/>
+                            <constraint firstItem="C4D-pT-G7c" firstAttribute="top" secondItem="j6q-uA-VFg" secondAttribute="top" id="TO4-lm-MEr"/>
+                            <constraint firstItem="C4D-pT-G7c" firstAttribute="leading" secondItem="j6q-uA-VFg" secondAttribute="leading" id="XdY-L2-cOm"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="j6q-uA-VFg"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="l9A-e0-aib"/>
+                    <navigationItem key="navigationItem" title="Saved" id="SAf-mR-Kpb"/>
+                    <connections>
+                        <outlet property="streamsTable" destination="C4D-pT-G7c" id="iQf-Zt-tBq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="twV-g0-NoC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="325" y="1027"/>
+            <point key="canvasLocation" x="1234.7826086956522" y="1026.5625"/>
         </scene>
         <!--Item-->
         <scene sceneID="Xiq-Qp-3P5">
@@ -69,7 +84,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D45-vZ-voG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1372" y="1027"/>
+            <point key="canvasLocation" x="2281.1594202898555" y="1026.5625"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="NiF-Oq-yZj">
@@ -81,8 +96,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="mHW-pp-nOh" kind="relationship" relationship="viewControllers" id="zv8-gt-HED"/>
                         <segue destination="1Xf-Jz-5yZ" kind="relationship" relationship="viewControllers" id="otI-le-MRT"/>
+                        <segue destination="8Tj-ap-2HV" kind="relationship" relationship="viewControllers" id="zv8-gt-HED"/>
                         <segue destination="THY-Sd-4WK" kind="relationship" relationship="viewControllers" id="DGY-bE-3Ez"/>
                     </connections>
                 </tabBarController>
@@ -108,6 +123,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gkO-Dz-ZMf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-665.21739130434787" y="1026.5625"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="AYj-vO-2ao">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Tj-ap-2HV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item 1" id="l9A-e0-aib"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2na-Kh-KI4">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mHW-pp-nOh" kind="relationship" relationship="rootViewController" id="9gb-gj-1Cn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lMf-hO-qwd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="324.63768115942031" y="1026.5625"/>
         </scene>
     </scenes>
 </document>

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,6 +23,11 @@
 		877CA6012480EB6A002E6C77 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877CA6002480EB6A002E6C77 /* Game.swift */; };
 		877CA6032480EC85002E6C77 /* TwitchStreamAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877CA6022480EC85002E6C77 /* TwitchStreamAPIResponse.swift */; };
 		877CA6062480F88D002E6C77 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877CA6052480F88D002E6C77 /* Box.swift */; };
+		877CA60B248108F6002E6C77 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877CA60A248108F6002E6C77 /* SavedViewController.swift */; };
+		877CA60D2481092F002E6C77 /* SavedViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877CA60C2481092F002E6C77 /* SavedViewViewModel.swift */; };
+		877CA60F2481095E002E6C77 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877CA60E2481095E002E6C77 /* CoreDataStack.swift */; };
+		877CA611248109D6002E6C77 /* TwitchStreamDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877CA610248109D6002E6C77 /* TwitchStreamDataManager.swift */; };
+		877CA61424810A49002E6C77 /* TwitchTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 877CA61224810A49002E6C77 /* TwitchTest.xcdatamodeld */; };
 		CC48C73EB88C9AF9971C9139 /* Pods_TwitchTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08A071A17D749302CBADA1C7 /* Pods_TwitchTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +52,11 @@
 		877CA6002480EB6A002E6C77 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		877CA6022480EC85002E6C77 /* TwitchStreamAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchStreamAPIResponse.swift; sourceTree = "<group>"; };
 		877CA6052480F88D002E6C77 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		877CA60A248108F6002E6C77 /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
+		877CA60C2481092F002E6C77 /* SavedViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewViewModel.swift; sourceTree = "<group>"; };
+		877CA60E2481095E002E6C77 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		877CA610248109D6002E6C77 /* TwitchStreamDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchStreamDataManager.swift; sourceTree = "<group>"; };
+		877CA61324810A49002E6C77 /* TwitchTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TwitchTest.xcdatamodel; sourceTree = "<group>"; };
 		FFC85731572B5098E8DB4291 /* Pods-TwitchTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitchTest.release.xcconfig"; path = "Target Support Files/Pods-TwitchTest/Pods-TwitchTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,7 +78,6 @@
 				033141016CFF92032632C5D3 /* Pods-TwitchTest.debug.xcconfig */,
 				FFC85731572B5098E8DB4291 /* Pods-TwitchTest.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -103,6 +112,9 @@
 				877CA5D82480DD2F002E6C77 /* Assets.xcassets */,
 				877CA5DA2480DD2F002E6C77 /* LaunchScreen.storyboard */,
 				877CA5DD2480DD2F002E6C77 /* Info.plist */,
+				877CA610248109D6002E6C77 /* TwitchStreamDataManager.swift */,
+				877CA61224810A49002E6C77 /* TwitchTest.xcdatamodeld */,
+				877CA60E2481095E002E6C77 /* CoreDataStack.swift */,
 			);
 			path = TwitchTest;
 			sourceTree = "<group>";
@@ -110,6 +122,7 @@
 		877CA5E32480DF1C002E6C77 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				877CA609248108DC002E6C77 /* Saved */,
 				877CA5F02480E06C002E6C77 /* GameCell */,
 				877CA5E42480DF5D002E6C77 /* TopStreams */,
 			);
@@ -168,6 +181,15 @@
 				877CA6052480F88D002E6C77 /* Box.swift */,
 			);
 			path = Boxing;
+			sourceTree = "<group>";
+		};
+		877CA609248108DC002E6C77 /* Saved */ = {
+			isa = PBXGroup;
+			children = (
+				877CA60A248108F6002E6C77 /* SavedViewController.swift */,
+				877CA60C2481092F002E6C77 /* SavedViewViewModel.swift */,
+			);
+			path = Saved;
 			sourceTree = "<group>";
 		};
 		90951D7D23B46DBE3ABB9856 /* Frameworks */ = {
@@ -294,6 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				877CA60F2481095E002E6C77 /* CoreDataStack.swift in Sources */,
 				877CA5F72480E80F002E6C77 /* APIManager.swift in Sources */,
 				877CA6012480EB6A002E6C77 /* Game.swift in Sources */,
 				877CA5F32480E080002E6C77 /* GameTableViewCell.swift in Sources */,
@@ -301,11 +324,15 @@
 				877CA5F92480E95F002E6C77 /* ErrorManager.swift in Sources */,
 				877CA6032480EC85002E6C77 /* TwitchStreamAPIResponse.swift in Sources */,
 				877CA5FD2480EAAF002E6C77 /* APITwitchStreamManager.swift in Sources */,
+				877CA61424810A49002E6C77 /* TwitchTest.xcdatamodeld in Sources */,
 				877CA5D02480DD2E002E6C77 /* AppDelegate.swift in Sources */,
 				877CA5E82480DFAA002E6C77 /* TopStreamsViewController.swift in Sources */,
 				877CA6062480F88D002E6C77 /* Box.swift in Sources */,
+				877CA60B248108F6002E6C77 /* SavedViewController.swift in Sources */,
+				877CA611248109D6002E6C77 /* TwitchStreamDataManager.swift in Sources */,
 				877CA5EA2480DFCC002E6C77 /* TopStreamsViewModel.swift in Sources */,
 				877CA5D22480DD2E002E6C77 /* SceneDelegate.swift in Sources */,
+				877CA60D2481092F002E6C77 /* SavedViewViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +532,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		877CA61224810A49002E6C77 /* TwitchTest.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				877CA61324810A49002E6C77 /* TwitchTest.xcdatamodel */,
+			);
+			currentVersion = 877CA61324810A49002E6C77 /* TwitchTest.xcdatamodel */;
+			path = TwitchTest.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 877CA5C42480DD2E002E6C77 /* Project object */;
 }

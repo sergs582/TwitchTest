@@ -1,5 +1,5 @@
 //
-//  TopStreamsViewController.swift
+//  SavedViewController.swift
 //  TwitchTest
 //
 //  Created by Сергей on 29.05.2020.
@@ -8,14 +8,15 @@
 
 import UIKit
 
-class TopStreamsViewController: UIViewController, UITableViewDelegate {
+class SavedViewController: UIViewController {
 
     @IBOutlet weak var streamsTable: UITableView!
-    
+    var viewModel: SavedViewViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        viewModel = SavedViewViewModel()
         
-        viewModel = TopStreamsViewModel(apiManager: APITwitchStreamManager())
         viewModel.twitchStreamsArray.bind { _ in
             DispatchQueue.main.async {
                 self.streamsTable.reloadData()
@@ -23,32 +24,25 @@ class TopStreamsViewController: UIViewController, UITableViewDelegate {
         }
         setupStreamsTable()
     }
-    var viewModel: TopStreamsViewModel!
-    var page = 0
     
     func setupStreamsTable() {
         
         streamsTable.dataSource = self
-        streamsTable.delegate = self
-        streamsTable.tableFooterView = UIView(frame: .zero)
         streamsTable.register(UINib(nibName: "GameTableViewCell", bundle: nil), forCellReuseIdentifier: "gamecell")
     }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        let offsetY = scrollView.contentOffset.y
-        let contentHeight = scrollView.contentSize.height
-        
-        if offsetY > contentHeight - scrollView.frame.size.height && !viewModel.isLoading{
-            page += 10
-            viewModel.isLoading = true
-            viewModel.fetchStreams(page: page)
-        }
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
     }
+    */
 
 }
 
-extension TopStreamsViewController: UITableViewDataSource {
+extension SavedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.twitchStreamsArray.value?.count ?? 0
     }
@@ -64,7 +58,5 @@ extension TopStreamsViewController: UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.saveStream(forRow: indexPath.row)
-    }
+    
 }

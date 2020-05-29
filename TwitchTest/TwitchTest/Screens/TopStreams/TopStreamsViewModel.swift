@@ -12,6 +12,7 @@ class TopStreamsViewModel {
     
     var twitchStreamsArray: Boxing<[TwitchStream]?> = Boxing(nil)
     var twitchStreamManager: APITwitchStreamManager
+    var twitchStreamDataManager = TwitchStreamDataManager()
     var isLoading: Bool = true
     
     func fetchStreams(page: Int = 0) {
@@ -25,6 +26,10 @@ class TopStreamsViewModel {
             }
             self?.isLoading = false
         }
+    }
+    
+    func saveStream(forRow row: Int) {
+        twitchStreamDataManager.saveStream(stream: twitchStreamsArray.value![row])
     }
     
     init(apiManager: APITwitchStreamManager) {
